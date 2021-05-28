@@ -12,7 +12,7 @@ This is a plugin give you the ability to push notifications directly from your W
 ## Installation
 
 1. Copy the `hi-fcm` folder into your `wp-content/plugins` folder
-2. Activate the `HI FCM - Firbase Cloud Messaging` plugin via the plugin admin page
+2. Activate the `HI FCM - Firebase Cloud Messaging` plugin via the plugin admin page
 
 ## Features
 

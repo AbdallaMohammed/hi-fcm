@@ -1,7 +1,7 @@
 === HI FCM ===
 Contributors: AbdallahMohammed
 Donate link: https://paypal.me/falcoonphp
-Tags: fcm, firbase, cloud-messaging notifications, api, rest, wp-api, wp-rest-api, json, wp, wordpress, wp-rest-api, wordpress-rest-api
+Tags: fcm, firebase, cloud-messaging notifications, api, rest, wp-api, wp-rest-api, json, wp, wordpress, wp-rest-api, wordpress-rest-api
 Requires at least: 4.6
 Tested up to: 5.7.2
 Stable tag: 1.0.0
@@ -15,7 +15,7 @@ This plugin gives you the ability to push notifications through [Firebase Cloud 
 
 == Installation ==
 1. Copy the `hi-fcm` folder into your `wp-content/plugins` folder
-2. Activate the `HI FCM - Firbase Cloud Messaging` plugin via the plugin admin page
+2. Activate the `HI FCM - Firebase Cloud Messaging` plugin via the plugin admin page
 
 == Changelog ==
 
