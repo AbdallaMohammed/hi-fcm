@@ -1,10 +1,10 @@
 === HI FCM ===
 Contributors: AbdallahMohammed
 Donate link: https://paypal.me/falcoonphp
-Tags: fcm, notifications, api, rest, wp-api, wp-rest-api, json, wp, wordpress, wp-rest-api, wordpress-rest-api
+Tags: fcm, firbase, cloud-messaging notifications, api, rest, wp-api, wp-rest-api, json, wp, wordpress, wp-rest-api, wordpress-rest-api
 Requires at least: 4.6
-Tested up to: 5.4.2
-Stable tag: 3.3.2
+Tested up to: 5.7.2
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

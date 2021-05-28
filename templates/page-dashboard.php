@@ -7,7 +7,7 @@ if (! defined('ABSPATH')) {
 <h1><?php esc_html_e('Firbase Cloud Messaging', 'hi-fcm') ?></h1>
 
 <h2 class="nav-tab-wrapper">
-    <a href="<?= esc_url(admin_url('admin.php?page=hi_fcm')) ?>" class="nav-tab nav-tab-active">
+    <a href="<?php echo esc_url(admin_url('admin.php?page=hi_fcm')) ?>" class="nav-tab nav-tab-active">
         <?php esc_html_e('Settings', 'hi-fcm') ?>
     </a>
     <?php do_action('hi_fcm/dashboard/tabs') ?>

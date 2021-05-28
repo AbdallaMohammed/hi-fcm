@@ -5,16 +5,16 @@
  *
  * @package   HIFCM
  * @author    AbdallahMohammed
- * @link      https://abdallah1m.blogspot.com
+ * @link      https://github.com/AbdallaMohammed/hi-fcm
  * @copyright 2021 by AbdallahMohammed
  *
  * @wordpress-plugin
- * Plugin Name: HI FCM - Firbase Cloud Messaging
- * Plugin URI:  https://abdallah1m.blogspot.com/hi-fcm.html
+ * Plugin Name: HI FCM - Firebase Cloud Messaging
+ * Plugin URI:  https://github.com/AbdallaMohammed/hi-fcm
  * Description: Advanced notifications using firebase cloud messaging from your WordPress!
  * Version:     1.0.0
  * Author:      AbdallahMohammed
- * Author URI:  https://abdallah1m.blogspot.com
+ * Author URI:  https://github.com/AbdallaMohammed
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: hi-fcm
@@ -394,7 +394,7 @@ if (! class_exists('HIF_Fcm')) {
             foreach ($post_types as $post_type) {
                 add_meta_box(
                     'hi_fcm_send_fcm_notification',
-                    esc_attr('Push Notification', 'hi-fcm'),
+                    esc_html__('Push Notification', 'hi-fcm'),
                     [$this, 'add_meta_boxes_callback'],
                     $post_type->name,
                     'side',
@@ -458,7 +458,7 @@ if (! class_exists('HIF_Fcm')) {
             }
 
             if (isset($_POST['hi_fcm_subscription'])) {
-                update_post_meta($post_id, 'hi_fcm_subscription', esc_attr($_POST['hi_fcm_subsciption']));
+                update_post_meta($post_id, 'hi_fcm_subscription', sanitize_text_field($_POST['hi_fcm_subsciption']));
             }
 
             add_action('save_post', [$this, 'on_post_save'], 10, 3);

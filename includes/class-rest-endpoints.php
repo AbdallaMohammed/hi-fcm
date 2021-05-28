@@ -66,7 +66,7 @@ class HIF_REST_Endpoints {
 
         $user = get_user_by('ID', sanitize_text_field($request->get_param('user_id')));
         $post = wp_insert_post([
-            'post_title' => esc_attr($user->email),
+            'post_title' => sanitize_email($user->email),
             'post_author' => absint($user->ID),
             'post_status' => 'publish',
             'post_type' => 'hi_fcm_tokens',
