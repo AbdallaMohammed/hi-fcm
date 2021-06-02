@@ -15,7 +15,7 @@ class HIF_Menu {
             __('Firebase Cloud Messaging', 'hi-fcm'),
             'manage_options',
             'hi_fcm',
-            'HIF_Pages::dashboard',
+            'HIF_Pages::dashboard'
         );
     }
 }
