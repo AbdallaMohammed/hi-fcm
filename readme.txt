@@ -4,7 +4,7 @@ Donate link: https://paypal.me/falcoonphp
 Tags: fcm, firebase, cloud-messaging notifications, api, rest, wp-api, wp-rest-api, json, wp, wordpress, wp-rest-api, wordpress-rest-api
 Requires at least: 4.6
 Tested up to: 5.7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
