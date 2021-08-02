@@ -79,7 +79,49 @@ class HIF_Notifications {
 
         $args = wp_parse_args($args, $defaults);
 
-        $response = wp_remote_post('https://fcm.googleapis.com/fcm/send', apply_filters('hi_fcm/notifications/post', [
+        return $this->send($defaults);
+    }
+
+    /**
+     * Send notification to custom devices.
+     * 
+     * @return array
+     */
+    public function devices($devices, $args = []) {
+        $defaults = [
+            'data' => [
+                'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+                'message' => '',
+                'title' => '',
+                'image' => '',
+                'show_in_notification' => true,
+                'command' => '',
+                'dialog_title' => '',
+                'dialog_text' => '',
+                'dialog_image' => '',
+                'sound' => 'default',
+            ],
+            'collapse_key' => 'type_a',
+            'priority' => 'heigh',
+            'timeToLive' => 10,
+        ];
+
+        foreach ($devices as $device) {
+            $defaults['android_channel_id'][] = hi_fcm_get_column_data($device, 'device_token');
+        }
+
+        $args = wp_parse_args($args, $defaults);
+
+        return $this->send($args);
+    }
+
+    /**
+     * Send notification post request.
+     * 
+     * @return WP_Response
+     */
+    private function send($args) {
+        $response = wp_remote_post('https://fcm.googleapis.com/fcm/send', apply_filters('hi_fcm/notifications/request', [
             'timeout' => 45,
             'redirection' => 5,
             'httpversion' => '1.1',

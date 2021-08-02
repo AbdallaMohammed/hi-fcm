@@ -51,6 +51,26 @@ class HIF_REST_Endpoints {
                 ],
             ])
         );
+
+        register_rest_route(
+            'hifcm/v1',
+            '/fcm/send/user',
+            apply_filters('hi_fcm/endpoints/send/user', [
+                'methods' => ['POST'],
+                'callback' => [__CLASS__, 'send_user_endpoint'],
+                'permission_callback' => '__return_true',
+                'args' => [
+                    'user_id' => [
+                        'required' => true,
+                        'type' => 'integer',
+                    ],
+                    'message' => [
+                        'required' => true,
+                        'type' => 'text',
+                    ],
+                ],
+            ])
+        );
     }
 
     public static function subscribe_endpoint($request) {
@@ -129,6 +149,32 @@ class HIF_REST_Endpoints {
         return rest_ensure_response([
             'code' => 'rest_hi_fcm_delete_device',
             'message' => esc_html__('Device has been deleted successfully', 'hi-fcm'),
+            'data' => [
+                'status' => 200,
+            ],
+        ]);
+    }
+
+    public static function send_user_endpoint($request) {
+        global $hi_fcm;
+
+        $devices = hi_fcm_find_devices_by_user_ID($request->get_param('user_id'));
+
+        if (! count($devices)) {
+            return new WP_Error(
+                'rest_user_token_not_exists',
+                esc_html__('This user doesn\'t have token', 'hi-fcm'),
+                [
+                    'status' => 400,
+                ]
+            );
+        }
+
+        $hi_fcm->notifications->devices($devices);
+
+        return rest_ensure_response([
+            'code' => 'rest_hi_fcm_send_custom_message',
+            'message' => esc_html__('The notification has been sent successfully', 'hi-fcm'),
             'data' => [
                 'status' => 200,
             ],
