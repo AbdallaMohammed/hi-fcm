@@ -66,7 +66,9 @@ class HIF_REST_Endpoints {
                     ],
                     'message' => [
                         'required' => true,
-                        'type' => 'text',
+                    ],
+                    'title' => [
+                        'required' => true,
                     ],
                 ],
             ])
@@ -170,7 +172,14 @@ class HIF_REST_Endpoints {
             );
         }
 
-        $hi_fcm->notifications->devices($devices);
+        $hi_fcm->notifications->devices($devices, [
+            'message' => $request->get_param('message'),
+            'title' => $request->get_param('title'),
+            'image' => $request->get_param('image'),
+            'dialog_title' => $request->get_param('dialog_title'),
+            'dialog_text' => $request->get_param('dialog_text'),
+            'dialog_image' => $request->get_param('dialog_image'),
+        ]);
 
         return rest_ensure_response([
             'code' => 'rest_hi_fcm_send_custom_message',

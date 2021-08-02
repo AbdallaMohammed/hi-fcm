@@ -28,6 +28,7 @@ This is a plugin give you the ability to push notifications directly from your W
 |----------|:--------:|:--------:|
 | /wp-json/hifcm/v1/fcm/subscribe | POST | **user_id**<br>required, integer<br>**device_token**<br>required, string<br>**taxonomy**<br>required, string<br>**device_name**<br>nullable, string<br>**os_version**<br>nullable, string
 | /wp-json/hifcm/v1/fcm/unsubscribe | DELETE, POST | **user_id**<br>required, integer<br>**device_token**<br>nullable, string
+| /wp-json/hifcm/v1/fcm/send/user | POST | **user_id**<br>required, integer<br>**device_token**<br>nullable, string
 
 ## Filters
 
