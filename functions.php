@@ -290,3 +290,65 @@ if (! function_exists('hi_fcm_get_subscribers_tokens')) {
         return $tokens;
     }
 }
+
+if (! function_exists('hi_fcm_get_user_notifications')) {
+    /**
+     * Get user notifications.
+     * 
+     * @param integer|WP_User $user
+     * @return array
+     */
+    function hi_fcm_get_user_notifications($user) {
+        if (is_object($user)) {
+            $user = $user->ID;
+        }
+
+        $notifications = get_user_meta($user, 'hi_fcm_notifications', true);
+
+        return ! empty($notifications) ? $notifications : [];
+    }
+}
+
+if (! function_exists('hi_fcm_update_user_notifications')) {
+    /**
+     * Update user notifications.
+     * 
+     * @param integer|WP_User $user
+     * @param array $args
+     * @return boolean
+     */
+    function hi_fcm_update_user_notifications($user, $args) {
+        if (is_object($user)) {
+            $user = $user->ID;
+        }
+
+        return update_user_meta(
+            $user,
+            'hi_fcm_notifications',
+            array_push(hi_fcm_get_user_notifications($user), $args),
+        );
+    }
+}
+
+if (! function_exists('hi_fcm_update_current_user_notifications')) {
+    /**
+     * Update current user notifications.
+     * 
+     * @param array $args
+     * @return boolean
+     */
+    function hi_fcm_update_current_user_notifications($args = []) {
+        return hi_fcm_update_user_notifications(get_current_user_id(), $args);
+    }
+}
+
+if (! function_exists('hi_fcm_get_current_user_notifications')) {
+    /**
+     * Update current user notifications.
+     * 
+     * @return array
+     */
+    function hi_fcm_get_current_user_notifications() {
+        return hi_fcm_get_user_notifications(get_current_user_id());
+    }
+}

@@ -12,7 +12,7 @@
  * Plugin Name: HI FCM - Firebase Cloud Messaging
  * Plugin URI:  https://github.com/AbdallaMohammed/hi-fcm
  * Description: Advanced notifications using firebase cloud messaging from your WordPress!
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:      AbdallahMohammed
  * Author URI:  https://github.com/AbdallaMohammed
  * License: GPLv3 or later
@@ -33,7 +33,7 @@ if (! class_exists('HIF_Fcm')) {
         /**
          * @var string
          */
-        public $version = '1.0.0';
+        public $version = '1.0.2';
 
         /**
          * @var string

@@ -26,6 +26,7 @@ This is a plugin give you the ability to push notifications directly from your W
 
 | Endpoint | Method | Params |
 |----------|:--------:|:--------:|
+| /wp-json/hifcm/v1/fcm/notifications | GET | *NOTHING*
 | /wp-json/hifcm/v1/fcm/subscribe | POST | **user_id**<br>required, integer<br>**device_token**<br>required, string<br>**taxonomy**<br>required, string<br>**device_name**<br>nullable, string<br>**os_version**<br>nullable, string
 | /wp-json/hifcm/v1/fcm/unsubscribe | DELETE, POST | **user_id**<br>required, integer<br>**device_token**<br>nullable, string
 | /wp-json/hifcm/v1/fcm/send/user | POST | **user_id**<br>required, integer<br>**message**<br>required, string<br>**title**<br>required, string<br>**image**<br>nullable, url<br>**dialog_title**<br>nullable, string<br>**dialog_text**<br>nullable, string<br>**dialog_image**<br>nullable, url
@@ -40,6 +41,7 @@ This is a plugin give you the ability to push notifications directly from your W
 | hi_fcm/term_names | **$results**<br>array<br>**$terms**<br>WP_Term_Query<br>**$post**<br>WP_Post |
 | hi_fcm/get_tokens | **$args**<br>array |
 | hi_fcm/notifications/post | **$args**<br>array |
+| hi_fcm/endpoints/notifications | **$args**<br>array |
 | hi_fcm/endpoints/subscribe | **$args**<br>array |
 | hi_fcm/endpoints/unsubscribe | **$args**<br>array |
 

@@ -136,6 +136,8 @@ class HIF_Notifications {
 
         do_action('hi_fcm/notification/response', $response, $post);
 
+        hi_fcm_update_current_user_notifications($args);
+
         return $response;
     }
 }

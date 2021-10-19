@@ -21,3 +21,7 @@ This plugin gives you the ability to push notifications through [Firebase Cloud 
 
 = 1.0.0 =
 Initial Release
+
+= 1.0.2 =
+- Add the ability to save notifications for each user.
+- `notifications` endpoint

@@ -73,6 +73,16 @@ class HIF_REST_Endpoints {
                 ],
             ])
         );
+
+        register_rest_route(
+            'hifcm/v1',
+            '/fcm/notifications',
+            apply_filters('hi_fcm/endpoints/notifications', [
+                'methods' => ['GET'],
+                'callback' => [__CLASS__, 'get_notifications'],
+                'permission_callback' => fn () => is_user_logged_in(),
+            ])
+        );
     }
 
     public static function subscribe_endpoint($request) {
@@ -188,5 +198,11 @@ class HIF_REST_Endpoints {
                 'status' => 200,
             ],
         ]);
+    }
+
+    public static function get_notifications($request) {
+        return rest_ensure_response(
+            hi_fcm_get_current_user_notifications(),
+        );
     }
 }
